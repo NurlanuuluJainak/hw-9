@@ -1,0 +1,30 @@
+.input{
+    width: 340px;
+    height: 39px;
+    border-radius: 8px;
+    border-color: #ad9be9;
+}
+
+.lable{
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.container{
+    display: flex;
+    background-color: #ad9be9;
+    border-radius: 8px;
+    gap: 2rem;
+    width: 900px;
+    height: 300px;
+    align-items: center;
+    margin-left: 150px;
+}
+
+.containertwo{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

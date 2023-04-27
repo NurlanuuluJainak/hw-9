@@ -1,0 +1,11 @@
+.chart{
+    display: flex;
+    background-color: cornsilk;
+    max-width: 1000px;
+    justify-content: space-around;
+    padding: 20px 20px;
+    margin: 0 auto;
+    height: 17vh;
+    margin-top: 10px;
+    border-radius: 10px;
+}
