@@ -1,12 +1,10 @@
-import Button from '../UI/Button/Button'
 import styled from 'styled-components'
 export const ExpensesFilter = (props) =>{
     return (
         <ExpensesFilterContent >
             <ExpensesFilterControl >
                 <ExpnesesFilterControlLable>Filter by year</ExpnesesFilterControlLable>
-                <Button >по убыванию</Button>
-                <Button>по возрастанию</Button>
+             
             </ExpensesFilterControl>
                 <div >
 

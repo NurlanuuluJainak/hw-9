@@ -5,7 +5,6 @@ export const ChartBar  = (props) => {
     console.log(props.el.currentPrice   )
     const maxPriceForMonth = 2000;
     const percent = Math.round((props.el.currentPrice * 100) / maxPriceForMonth);
-    console.log(percent,"prassent")
     return(
         <ChartBars >
             <div className='chart-bar'>

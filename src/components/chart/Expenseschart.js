@@ -18,8 +18,6 @@ export const ExpensesChart = (props) =>{
         {lable: "Dec", currentPrice:0},
     ]
 
-    console.log(props.filteredExpenses, "chart")
-
     props.filteredExpenses.forEach((element) => {
         const findedMonthNumber = element.date.getMonth();
         months[findedMonthNumber].currentPrice += element.price

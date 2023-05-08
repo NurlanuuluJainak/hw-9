@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import './App.css';
+import { useEffect } from 'react';
 import { Expenses } from './components/Expenses/Expenses';
 import { NewExpense } from './components/NewExpenses/NewExpenses';
 import { Header } from './components/Header/header';
+import { Users } from './components/users/Users';
+import { Login } from './components/login/Login';
 const producDate = [
   {
     title:"Alma",
@@ -32,6 +35,38 @@ const producDate = [
 
 
 function App() {
+  const [isloggedIn, setIsloggedIn] = useState(false);
+  const [user, setUser] = useState(false);
+
+  function getLogin() {
+    setIsloggedIn(true);
+    localStorage.setItem("Login", !isloggedIn);
+  }
+
+  function closeLogin() {
+    setIsloggedIn((prev) => !prev);
+    localStorage.removeItem("Login");
+  }
+  useEffect(() => {
+    const getLocal = localStorage.getItem("Login");
+    setIsloggedIn(getLocal);
+  }, []);
+
+
+  function ExpensHandler() {
+    setUser((prev) => !prev);
+    localStorage.removeItem("Users");
+  }
+  // !
+  function UserMaps() {
+    setUser(true);
+    localStorage.setItem("Users", !user);
+  }
+  useEffect(() => {
+    const getUser = localStorage.getItem("Users");
+    setUser(getUser);
+  }, []);
+
 
   const [newProduc,setNewProduc] = useState(producDate)
 
@@ -47,10 +82,28 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
-     <NewExpense onSubmit={addNewExpensesHandler}/>
-     <Expenses data={newProduc} />
-    </div>
+    <Header
+      onLogin={getLogin}
+      closeLogin={closeLogin}
+      UserMaps={UserMaps}
+      isloggedIn={isloggedIn}
+      expensHandler={ExpensHandler}
+    />
+    {isloggedIn ? (
+      <>
+        {user ? (
+          <Users closeLogin={closeLogin} />
+        ) : (
+          <div>
+            <NewExpense onSubmit={addNewExpensesHandler} />
+            <Expenses data={newProduc} />
+          </div>
+        )}
+      </>
+    ) : (
+      <Login getLogin={getLogin} />
+    )}
+  </div>
     
 
   );

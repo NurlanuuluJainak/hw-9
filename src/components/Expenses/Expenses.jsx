@@ -12,7 +12,6 @@ export const Expenses = ({data}) => {
     function getSelectValue(event){
         setSelectedYear(event.target.value)
     }
-    console.log(selectedYear)
     
     const filteredYear = data.filter((el) =>{
         return el.date.getFullYear().toString() === selectedYear
@@ -21,8 +20,8 @@ export const Expenses = ({data}) => {
     
     return(
         <ExpensesCardFilter>
-            <ExpensesFilter getValue={getSelectValue}/>
-            <ExpensesChart filteredExpenses={filteredYear}/>
+            <ExpensesFilter value={selectedYear} getValue={getSelectValue}/>
+            <ExpensesChart  filteredExpenses={filteredYear}/>
         {filteredYear.map((el) =>(
            <ExpenseCard el={el} key={el.id} />
         ))}
